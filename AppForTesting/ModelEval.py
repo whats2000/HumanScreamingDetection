@@ -6,7 +6,7 @@ from torchvision.transforms import transforms
 
 # Define a function to transform audio data into images
 def transform_data_to_image(audio, sample_rate):
-    spectrogram_tensor = torchaudio.transforms.MelSpectrogram(sample_rate=sample_rate, n_mels=64, n_fft=1024)(audio)[0].log2()
+    spectrogram_tensor = (torchaudio.transforms.MelSpectrogram(sample_rate=sample_rate, n_mels=64, n_fft=1024)(audio)[0] + 1e-10).log2()
     # Save the spectrogram as an image
     image_path = f'voice_image.png'
     plt.imsave(image_path, spectrogram_tensor.numpy(), cmap='viridis')

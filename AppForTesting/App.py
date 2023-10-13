@@ -7,7 +7,7 @@ from RecordSound import record_sound
 
 app = Flask(__name__)
 
-model = torch.load('Models/model_2023-10-10--17-02-06.pt')
+model = torch.load('Models/Resnet34_Model_2023-10-13--14-03-45.pt')
 
 # Define a route to serve the HTML page
 @app.route('/')
